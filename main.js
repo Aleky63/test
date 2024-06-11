@@ -1,65 +1,63 @@
-const STATUSES = {
-  TODO: "todo",
-  IN_PROGRESS: "in_progress",
-  DONE: "done",
+const IN_PROGRESS = "In Progress";
+const DONE = "Done";
+const TO_DO = "To Do";
+const WANT = "Want";
+const DRINK = "Drink";
+
+const arrList = [
+  { name: "create a new practice status", status: IN_PROGRESS },
+  { name: "make a bed", status: DONE },
+  { name: "write a post", status: TO_DO },
+  { name: "write ", status: IN_PROGRESS },
+];
+
+const arrTask = [IN_PROGRESS, DONE, TO_DO, WANT, DRINK];
+
+const addTask = (newName) => {
+  const objTask = {
+    name: newName,
+    status: DRINK,
+  };
+  arrList.unshift(objTask);
+};
+addTask("pour some water");
+
+console.log(arrList);
+console.log("------");
+
+const showList = () => {
+  arrTask.forEach((status) => {
+    console.log(status + ":");
+
+    const tasks = arrList.filter((task) => task.status === status);
+    tasks.length === 0
+      ? console.log(`\t-`)
+      : tasks.map((task) => console.log(`\t${task.name} `));
+  });
+};
+showList();
+console.log("------");
+
+const deleteTask = (name) => {
+  const index = arrList.findIndex((task) => task.name === name);
+  if (index === -1) {
+    console.log("ERROR");
+  } else {
+    arrList.splice(index, 1);
+    console.log(`Task '${name}' deleted`);
+  }
 };
 
-const { TODO, IN_PROGRESS, DONE } = STATUSES;
+deleteTask("write a post");
+deleteTask("wwwww");
+console.log("------");
+showList();
+console.log(arrList);
 
-const taskList = {
-  0: {
-    title: "сделать зарядку",
-    status: TODO,
-  },
-  1: {
-    title: "помыть посуду",
-    status: DONE,
-  },
-  2: {
-    title: "задача из страды",
-    status: IN_PROGRESS,
-  },
-  3: {
-    title: "прочитать Грокаем алгоритмы",
-    status: IN_PROGRESS,
-  },
+const changeStatus = (name, status) => {
+  let indexMoveTask = arrList.findIndex((task) => task.name === name);
+  arrList[indexMoveTask] = { name, status };
 };
 
-let lastId = Math.max(...Object.keys(taskList));
-
-function rightStatus(status) {
-  return status === TODO || status === DONE || status === IN_PROGRESS;
-}
-
-function addTask(title, status) {
-  if (rightStatus(status)) {
-    lastId++;
-    return (taskList[lastId] = { title, status });
-  } else {
-    console.log("Данный статус некорректен, используйте пожалуйста корректный");
-  }
-}
-
-function show() {
-  for (task in taskList) {
-    console.log(
-      `Задача #${task} ${taskList[task].title} в статусе ${taskList[task].status}`
-    );
-  }
-}
-
-function deleteTask(id) {
-  if (id in taskList) {
-    delete taskList[id];
-    console.log(`Задача #${id} удалена`);
-  } else {
-    console.log(`Задача #${id} не найдена`);
-  }
-}
-
-addTask("убраться на столе", "todo");
-addTask("пробежка", "upcoming");
-show();
-deleteTask(1);
-deleteTask(1);
-show();
+changeStatus("make a bed", IN_PROGRESS);
+console.log(arrList);

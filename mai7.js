@@ -11,7 +11,7 @@
 // showVerticalMessage("stradasye");
 
 function showVerticalMessage(str) {
-  myStr =
+  let myStr =
     str[0] === "s" ? str[0].toUpperCase() + str.slice(1, 7) : str.slice(0, 7);
 
   for (let letter of myStr) {

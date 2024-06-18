@@ -6,7 +6,7 @@ const STATUSES = {
   DRINKING: "Drinking",
 };
 
-let arrList = [
+let toDoList = [
   { name: "create a new practice status", status: STATUSES.IN_PROGRESS },
   { name: "make a bed", status: STATUSES.DONE },
   { name: "write a post", status: STATUSES.TO_DO },
@@ -19,18 +19,18 @@ const addTask = (newName) => {
     name: newName,
     status: STATUSES.DRINKING,
   };
-  arrList.unshift(objTask);
+  toDoList.unshift(objTask);
 };
 addTask("pour some water");
 
-console.log(arrList);
+console.log(toDoList);
 console.log("------");
 
 const showList = () => {
   Object.keys(STATUSES).forEach((status) => {
     console.log(STATUSES[status] + ":");
 
-    const tasks = arrList.filter((task) => task.status === STATUSES[status]);
+    const tasks = toDoList.filter((task) => task.status === STATUSES[status]);
     tasks.length === 0
       ? console.log(`\t-`)
       : tasks.map((task) => console.log(`\t${task.name} `));
@@ -40,11 +40,11 @@ showList();
 console.log("------");
 
 const deleteTask = (name) => {
-  const index = arrList.findIndex((task) => task.name === name);
+  const index = toDoList.findIndex((task) => task.name === name);
   if (index === -1) {
     console.log("ERROR");
   } else {
-    arrList.splice(index, 1);
+    toDoList.splice(index, 1);
     console.log(`Task '${name}' deleted`);
   }
 };
@@ -53,11 +53,11 @@ deleteTask("write a post");
 deleteTask("wwwww");
 console.log("------");
 
-console.log(arrList);
+console.log(toDoList);
 
 const changeStatus = (name, status) => {
   let foundTask = false;
-  arrList.forEach((task) => {
+  toDoList.forEach((task) => {
     if (task.name === name) {
       foundTask = true;
       if (task.status === status) {
@@ -76,5 +76,5 @@ const changeStatus = (name, status) => {
 changeStatus("make a ", STATUSES.IN_PROGRESS);
 changeStatus("pour some water", STATUSES.DRINKING);
 changeStatus("make a bed", STATUSES.IN_PROGRESS);
-console.log(arrList);
+console.log(toDoList);
 showList();

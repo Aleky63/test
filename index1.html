@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doc</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>PROBAAA</h1>
+    <div class="" id="el">
+      <div class="">Элемент</div>
+    </div>
+    <ul>
+      <li>111</li>
+      <li>222</li>
+      <li>333</li>
+    </ul>
+    <ul>
+      <li>11</li>
+      <li>22</li>
+      <li>33</li>
+    </ul>
+
+    <a href="https://www.google.ru/">Ссылка1</a>
+    <a href="https://mail.com/">Ссылка2</a>
+    <a href="https://dzen.ru/">Ссылка3</a>
+
+    <a href="http://example.com" id="myLink">Ссылка</a>
+
+    <div id="outerDiv">
+      <div id="innerDiv">
+        <button id="innerButton">Нажми меня</button>
+      </div>
+    </div>
+
+    <script>
+      function countRoadmaps() {
+        for (let i = 1; i <= 5; i++) {
+          alert("Роадмап номер " + i);
+        }
+      }
+    </script>
+
+    <input type="button" onclick="countRoadmaps()" value="Считать марафоны!" />
+    <input id="elem" type="button" value="Нажми меня!" />
+    <script>
+      elem.onclick = function () {
+        alert("Зачем нажал?");
+      };
+    </script>
+  </body>
+</html>

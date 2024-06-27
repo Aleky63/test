@@ -1,3 +1,24 @@
 body {
-  background-color: #e49c9c;
+  background-color: #f3e8e8;
+}
+.container {
+  max-width: 1200px;
+  padding: 0 50px;
+  margin: 200px auto;
+}
+.blok {
+  display: flex;
+  justify-content: space-around;
+}
+.btn {
+  color: white;
+  padding: 30px 60px;
+  font-size: 24px;
+}
+.btnStart {
+  background-color: blue;
+}
+.btnStop {
+  background-color: red;
+  padding: 30px 100px;
 }

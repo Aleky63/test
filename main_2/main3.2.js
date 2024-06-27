@@ -26,4 +26,4 @@ function countdownTime(sec) {
   }, 1080);
 }
 
-countdown(6);
+countdownTime(6);

@@ -5,8 +5,8 @@ function countDownInterval(sec) {
     if (sec > 0) {
       console.log(`осталось секунд: ${sec}`);
     } else {
-      console.log("время вышло");
       clearInterval(intervalId);
+      console.log("время вышло");
     }
   }, 1000);
 }

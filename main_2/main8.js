@@ -39,12 +39,10 @@ function startBtn() {
 button.addEventListener("click", startBtn);
 
 function stopBtn() {
-  if (click !== buttonName.STOP) {
-    clearInterval(countId);
-    count = 0;
-    alert(count);
-    console.log(count);
-  }
+  clearInterval(countId);
+  count = 0;
+  alert(count);
+  console.log(count);
 }
 
 buttonStop.addEventListener("click", stopBtn);
